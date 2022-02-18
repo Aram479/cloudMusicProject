@@ -1,0 +1,63 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+i {
+  font-style: normal;
+  display: inline-block;
+  user-select: none;
+}
+
+/* 单行文本省略 */
+.linelittle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
+}
+
+/* 多行文本省略 */
+.morelittle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.el-scrollbar__wrap {
+  overflow-x: hidden !important;
+}
+.mask {
+  height: 100%;
+}
+/* 消除poppver内置padding */
+.el-popover {
+  padding: 0 !important;
+}
+/* 暂无数据 */
+.no-data{
+  color: #797979;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 100px;
+}
+.volume-popover {
+  width: 30px !important;
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 10px 0 !important;
+  min-width: unset !important;
+}
+/* 修改下el-input样式 */
+.el-input__inner:focus {
+  border-color: #cd0101 !important;
+}
+.el-input__prefix-inner,.el-input__suffix-inner {
+  pointer-events: all;
+  display: inline-flex;
+  align-items: center;
+}
