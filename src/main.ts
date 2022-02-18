@@ -7,7 +7,7 @@ import _ from "lodash";
 import * as Icons from "@element-plus/icons-vue";
 import "element-plus/dist/index.css"; //服务类组件css样式
 import "@/assets/css/animate.css"; //animate css样式
-import '@/assets/css/tailwind.css' //安装并使用tailwind.css
+import "@/assets/css/tailwind.css"; //安装并使用tailwind.css
 const app = createApp(App);
 /* 注册全部icon */
 Object.keys(Icons).forEach((key) => {

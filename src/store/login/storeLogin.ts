@@ -1,12 +1,12 @@
 import { Module } from "vuex";
 import { IRootState, ILoginState } from "../types";
-import { getPhone,getLoginStatus,getLogout } from "@/servers/login/loginAPI";
+import { getPhone, getLoginStatus, getLogout } from "@/servers/login/loginAPI";
 import localCache from "@/utils/cache";
 const rankModule: Module<ILoginState, IRootState> = {
   namespaced: true,
   state() {
     return {
-      userData: localCache.getCache('userInfo') || {},
+      userData: localCache.getCache("userInfo") || {},
       token: localCache.getCache("token"),
       loginResErr: "",
     };
@@ -16,12 +16,12 @@ const rankModule: Module<ILoginState, IRootState> = {
     setUserData(state, userData: any) {
       state.userData = userData;
     },
-    logoutDelData(state){
-      localCache.delCache('userInfo')
-      localCache.delCache('token')
-      state.userData = {}
-      state.token = ''
-    }
+    logoutDelData(state) {
+      localCache.delCache("userInfo");
+      localCache.delCache("token");
+      state.userData = {};
+      state.token = "";
+    },
   },
   actions: {
     /* 获取手机登录接口数据 */
@@ -41,17 +41,17 @@ const rankModule: Module<ILoginState, IRootState> = {
       return getPhone(login);
     },
     /* 获取登录状态 */
-    async getLoginStatus({state,commit}){
-      const {data:res} = await getLoginStatus()
-      if(res.account == null) {
-        commit('logoutDelData') //清空登录数据
+    async getLoginStatus({ state, commit }) {
+      const { data: res } = await getLoginStatus();
+      if (res.account == null) {
+        commit("logoutDelData"); //清空登录数据
       }
     },
     /* 退出登录 */
-    async getLogout({state,commit}){
-      commit('logoutDelData')
-      await getLogout()
-    }
+    async getLogout({ state, commit }) {
+      commit("logoutDelData");
+      await getLogout();
+    },
   },
 };
 

@@ -155,5 +155,4 @@ export default defineComponent({
   display: inline-flex;
   align-items: center;
 } */
-
 </style>

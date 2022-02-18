@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts" setup>
-import { getLyric } from '@/servers/allListDetail/listDetailAPI'
+import { getLyric } from "@/servers/allListDetail/listDetailAPI";
 import { onMounted, reactive, watch, computed } from "vue";
 import { useStore } from "vuex";
 import { ILyricState } from "./types/lyric";
@@ -56,7 +56,7 @@ const lyricState = reactive<ILyricState>({
 
 /** 获取歌曲歌词 */
 const getSongLyric = async (id: number) => {
-  const { lrc, lyricUser, tlyric, transUser } = await getLyric(id)
+  const { lrc, lyricUser, tlyric, transUser } = await getLyric(id);
   lyricState.lyric = lrc.lyric;
   lyricState.transLyric = tlyric?.lyric;
   lyricState.lyricUser = lyricUser;

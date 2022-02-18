@@ -8,6 +8,6 @@ export function isShowApi(state: any) {
         arr.push(state[key].value.length);
       }
     }
-    return arr.length === Object.keys(state).length && arr.length
+    return arr.length === Object.keys(state).length && arr.length;
   });
 }

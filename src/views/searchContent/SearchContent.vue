@@ -42,7 +42,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, provide, reactive, ref, watch, watchEffect } from "vue";
+import {
+  defineComponent,
+  provide,
+  reactive,
+  ref,
+  watch,
+  watchEffect,
+} from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useState } from "@/hooks/mapGet/index.js";
 import { useStore } from "vuex";
@@ -121,8 +128,9 @@ export default defineComponent({
           searchResInfo.keywords = route.params.id;
           store.dispatch("Search/getSearchType", searchResInfo);
         }
-      },{
-        immediate:true,
+      },
+      {
+        immediate: true,
       }
     );
     return {

@@ -25,11 +25,11 @@ export interface INewMusic {
 
 /* 推荐mv类型 */
 export interface CommendMv {
-  id:number,
-  picUrl:string
-  artists:Array<CatInfo>
+  id: number;
+  picUrl: string;
+  artists: Array<CatInfo>;
 }
 /* 主播电台类型 */
-export interface DjPrgms extends INewMusic{
-  rcmdText:string
+export interface DjPrgms extends INewMusic {
+  rcmdText: string;
 }

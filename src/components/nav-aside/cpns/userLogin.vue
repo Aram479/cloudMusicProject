@@ -77,14 +77,14 @@ import { computed, defineComponent, reactive } from "vue";
 import { useState } from "@/hooks/mapGet/index.js";
 import { useStore } from "vuex";
 import { ElMessageBox, ElMessage } from "element-plus";
-import localCache from '@/utils/cache'
+import localCache from "@/utils/cache";
 export default defineComponent({
   name: "userLogin",
   setup(props, { emit }) {
     const state: any = useState("Login", ["userData"]);
     const store = useStore();
     store.dispatch("Login/getLoginStatus"); //每次获取用户登录状态
-    const userInfo = computed(() => localCache.getCache('userInfo'));
+    const userInfo = computed(() => localCache.getCache("userInfo"));
     const baseInfo = reactive([
       {
         count: userInfo.value?.djStatus,

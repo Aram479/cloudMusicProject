@@ -3,7 +3,11 @@
     <!-- 独家放送 -->
     <HomeListTitle title="独家放送" routerPath="/main/alone" />
     <!-- 独家放送列表区域 -->
-    <MvList :mvList="aloneList" :isUnderLine="true" v-show="aloneList.length <=4" />
+    <MvList
+      :mvList="aloneList"
+      :isUnderLine="true"
+      v-show="aloneList.length <= 4"
+    />
   </div>
 </template>
 

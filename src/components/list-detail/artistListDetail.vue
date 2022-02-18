@@ -59,7 +59,7 @@
 <script lang="ts">
 import { computed, defineComponent, reactive, ref, toRefs } from "vue";
 import { useStore } from "vuex";
-import { useState } from '@/hooks/mapGet/index.js'
+import { useState } from "@/hooks/mapGet/index.js";
 export default defineComponent({
   name: "artistListDetail",
   props: {
@@ -69,7 +69,7 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const state = useState('player',['currentId'])
+    const state = useState("player", ["currentId"]);
     const store = useStore();
     const isActive = ref(0);
     const maxLength = ref(10);

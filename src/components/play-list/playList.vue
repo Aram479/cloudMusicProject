@@ -29,7 +29,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useRouter } from 'vue-router'
+import { useRouter } from "vue-router";
 import PlayListBefore from "@/baseui/playListBefore/playListBefore.vue";
 export default defineComponent({
   name: "playList",
@@ -40,14 +40,14 @@ export default defineComponent({
     },
   },
   setup() {
-    const router = useRouter()
+    const router = useRouter();
     /* 歌单点击事件 */
-    const playListClick = (id:number)=>{
-      router.push(`/main/playlistdetail/${id}`)
-    }
+    const playListClick = (id: number) => {
+      router.push(`/main/playlistdetail/${id}`);
+    };
     return {
       router,
-      playListClick
+      playListClick,
     };
   },
   components: {

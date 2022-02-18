@@ -1,23 +1,18 @@
 <template>
-  <div id='music'>music</div>
+  <div id="music">music</div>
 </template>
 
-<script lang='ts'>
-import { defineComponent, reactive, ref } from 'vue'
+<script lang="ts">
+import { defineComponent, reactive, ref } from "vue";
 
 export default defineComponent({
-  name: 'music',
+  name: "music",
   setup() {
-    const data = reactive({})
-    return {
-
-    }
+    const data = reactive({});
+    return {};
   },
-  components: {
-
-  },
-})
+  components: {},
+});
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

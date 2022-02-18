@@ -76,8 +76,7 @@ export default defineComponent({
       Search,
     };
   },
-  components: {
-  },
+  components: {},
 });
 </script>
 
@@ -98,6 +97,5 @@ export default defineComponent({
   z-index: 1000;
   background-color: white;
   box-shadow: 0 0.14286rem 0.57143rem 0 rgb(0 0 0 / 20%);
-
 }
 </style>

@@ -3,9 +3,9 @@
   <div id="artistSyno" v-if="artistDesc.length">
     <div class="desc-box">
       <div class="desc-item" v-for="item in artistDesc" :key="item">
-        <div class="title">{{item.ti}}</div>
+        <div class="title">{{ item.ti }}</div>
         <div class="text" v-for="text in item.txt.split('\n')" :key="text">
-          <span>{{text}}</span>
+          <span>{{ text }}</span>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@ export default defineComponent({
 .desc-item {
   margin-bottom: 30px;
 }
-.desc-item:last-child{
+.desc-item:last-child {
   margin-bottom: 0px;
 }
 .title {

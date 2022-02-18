@@ -19,8 +19,8 @@
     />
   </div>
   <Loading
-    :isIcon="!Object.keys(userData).length ? false: true"
-    :loadTitle="!Object.keys(userData).length ? '请登录后查看！':'载入中...'"
+    :isIcon="!Object.keys(userData).length ? false : true"
+    :loadTitle="!Object.keys(userData).length ? '请登录后查看！' : '载入中...'"
     v-else
   />
 </template>

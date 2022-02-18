@@ -11,7 +11,15 @@
 
 <script lang="ts">
 import debounce from "lodash/debounce";
-import { computed, defineComponent, toRefs, reactive, ref, onMounted, watch } from "vue";
+import {
+  computed,
+  defineComponent,
+  toRefs,
+  reactive,
+  ref,
+  onMounted,
+  watch,
+} from "vue";
 
 export default defineComponent({
   name: "volumeProgress",
@@ -84,7 +92,8 @@ export default defineComponent({
 
     const handleProgressChange = debounce((endY = 0) => {
       /** 获取进度条到浏览器的距离 */
-      const eleToTop = progressRef.value?.getBoundingClientRect().top || dragState.startY;
+      const eleToTop =
+        progressRef.value?.getBoundingClientRect().top || dragState.startY;
       /** 计算鼠标距离进度条底部的百分比 */
       let percent = ((80 - (endY - eleToTop)) / 80) * 100;
       if (percent > 100) {

@@ -14,11 +14,11 @@
           :key="index1"
         >
           <!-- 左边图片 -->
-          <div class="offi-item-left" @click="rankClick(item1.id)" >
+          <div class="offi-item-left" @click="rankClick(item1.id)">
             <div class="left-img-title" :style="{ color: offiColor[index1] }">
               {{ item1.name }}
             </div>
-            <div class="left-img-box" >
+            <div class="left-img-box">
               <i class="iconfont icon-netease-cloud-music-line"></i>
               <i class="iconfont icon-icon-test"></i>
               <el-image :src="item1.coverImgUrl"></el-image>
@@ -69,18 +69,18 @@ export default defineComponent({
     },
   },
   setup() {
-    const router = useRouter()
+    const router = useRouter();
     //官方榜背景色
     const offiBgc = reactive(["#f3e0e7", "#e1ebea", "#e2e6ef", "#f2e0e0"]);
     const offiColor = reactive(["#ed3079", "#26998b", "#3a71c1", "#e22626"]);
     /* 点击图片跳转排行歌单 */
-    const rankClick = (id:number)=>{
-      router.push(`/main/playlistdetail/${id}`)
-    }
+    const rankClick = (id: number) => {
+      router.push(`/main/playlistdetail/${id}`);
+    };
     return {
       offiBgc,
       offiColor,
-      rankClick
+      rankClick,
     };
   },
   components: {},

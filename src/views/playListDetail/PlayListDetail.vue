@@ -78,8 +78,9 @@ export default defineComponent({
           store.dispatch("Detail/getListAllMusic", listResData);
           store.dispatch("Detail/getListCommentUrl", listCmtResData);
         }
-      },{
-        immediate:true,
+      },
+      {
+        immediate: true,
       }
     );
     return {

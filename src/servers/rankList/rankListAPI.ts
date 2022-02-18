@@ -11,11 +11,11 @@ export function getRankList() {
   });
 }
 /* 请求榜单详情数据,目前没用 */
-export function getRankDetailList(id:number) {
+export function getRankDetailList(id: number) {
   return zpRequest.get({
     url: rankAPI.rankDetailListUrl,
-    params:{
-      id
-    }
+    params: {
+      id,
+    },
   });
 }

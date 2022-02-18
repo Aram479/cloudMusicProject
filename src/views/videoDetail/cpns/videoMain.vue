@@ -45,7 +45,10 @@
                 >发布：{{ videoDetail.detail?.info?.publishTime }}</span
               >
               <span
-                >播放：<span v-thousand>{{ videoDetail.detail?.info?.playTime || videoDetail.detail?.info?.playCount}}</span
+                >播放：<span v-thousand>{{
+                  videoDetail.detail?.info?.playTime ||
+                  videoDetail.detail?.info?.playCount
+                }}</span
                 >次</span
               >
             </div>
@@ -80,7 +83,7 @@ import { useStore } from "vuex";
 import { useState } from "@/hooks/mapGet/index.js";
 import Comment from "@/components/list-detail/Comment/Comment.vue";
 import Loading from "@/baseui/loading/loading.vue";
-import Related from './relatedVideo.vue'
+import Related from "./relatedVideo.vue";
 export default defineComponent({
   name: "videoMain",
   setup() {
@@ -97,18 +100,16 @@ export default defineComponent({
       state.videoDetail.value.comment = 0;
       commentResInfo.offset = (page - 1) * commentResInfo.limit;
       /* 如果id是mv则请求mv评论，否则请求视频评论 */
-      if(+route.params.id){
+      if (+route.params.id) {
         store.dispatch("Video/getMvComment", commentResInfo);
-      }else {
+      } else {
         store.dispatch("Video/getVideoComment", commentResInfo);
       }
-
-
     };
     watch(
       () => route.params.id,
       (newV, oldV) => {
-        if (~route.path.indexOf("/videodetail")  ) {
+        if (~route.path.indexOf("/videodetail")) {
           if (+newV) {
             store.dispatch("Video/getVideoDetail", {
               id: route.params.id,
@@ -137,7 +138,7 @@ export default defineComponent({
   components: {
     Comment,
     Loading,
-    Related
+    Related,
   },
 });
 </script>

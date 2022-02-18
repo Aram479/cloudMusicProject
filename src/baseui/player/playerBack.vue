@@ -24,7 +24,14 @@
 
 <!-- 播放进度调整器 -->
 <script lang="ts" setup>
-import { ref, computed, onMounted, reactive, toRefs, defineComponent } from "vue";
+import {
+  ref,
+  computed,
+  onMounted,
+  reactive,
+  toRefs,
+  defineComponent,
+} from "vue";
 import debounce from "lodash/debounce";
 // export default defineComponent({})
 const props = withDefaults(

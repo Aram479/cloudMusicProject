@@ -1,22 +1,23 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 const Main = () => import("@/views/Main.vue");
-const VideoDetail = ()=> import('@/views/videoDetail/VideoDetail.vue')
+const VideoDetail = () => import("@/views/videoDetail/VideoDetail.vue");
 const Home = () => import("@/views/home/Home.vue");
 const Video = () => import("@/views/video/Video.vue");
 const Alone = () => import("@/views/alone/Alone.vue");
 const Music = () => import("@/views/music/Music.vue");
 
 const Playlist = () => import("@/views/playlist/Playlist.vue");
-const PlayListDetail = () =>import("@/views/playListDetail/PlayListDetail.vue");
+const PlayListDetail = () =>
+  import("@/views/playListDetail/PlayListDetail.vue");
 const RankList = () => import("@/views/rankList/RankList.vue");
 const ArtistList = () => import("@/views/artistList/ArtistList.vue");
-const ArtistDetail= () => import("@/views/artistDetail/ArtistDetail.vue");
+const ArtistDetail = () => import("@/views/artistDetail/ArtistDetail.vue");
 const LatestMusic = () => import("@/views/latestMusic/LatestMusic.vue");
-const AlbumDetail = ()=>import("@/views/albumDetail/AlbumDetail.vue")
-const SearchContent = ()=>import('@/views/searchContent/SearchContent.vue')
+const AlbumDetail = () => import("@/views/albumDetail/AlbumDetail.vue");
+const SearchContent = () => import("@/views/searchContent/SearchContent.vue");
 const routes: Array<RouteRecordRaw> = [
   {
-    path:  '/' || "/main",
+    path: "/" || "/main",
     redirect: "/main/home",
   },
   {
@@ -72,21 +73,20 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: "/main/albumdetail/:id",
         name: "albumDetail",
-        component: AlbumDetail
+        component: AlbumDetail,
       },
       {
         path: "/main/searchContent/:id",
         name: "searchContent",
-        component: SearchContent
+        component: SearchContent,
       },
-
     ],
   },
   {
     path: "/videodetail/:id",
     name: "videoDetail",
     component: VideoDetail,
-  }
+  },
 ];
 
 const router = createRouter({

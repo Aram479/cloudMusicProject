@@ -25,7 +25,7 @@ import { useStore } from "vuex";
 import { isShowApi } from "@/utils/isAllApi";
 import PlayList from "@/components/play-list/playList.vue";
 import RankOfficial from "./cpns/rankOfficial.vue";
-import Skeleton from './cpns/skeleton.vue'
+import Skeleton from "./cpns/skeleton.vue";
 export default defineComponent({
   name: "RankList",
   setup() {
@@ -47,7 +47,7 @@ export default defineComponent({
   components: {
     PlayList,
     RankOfficial,
-    Skeleton
+    Skeleton,
   },
 });
 </script>

@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref } from "vue";
-import { useRouter } from 'vue-router'
+import { useRouter } from "vue-router";
 export default defineComponent({
   name: "homeListTitle",
   props: {
@@ -25,12 +25,12 @@ export default defineComponent({
     },
   },
   setup() {
-    const router = useRouter()
-    const titleClick = (routerPath:string)=>{
-      router.push(routerPath)
-    }
+    const router = useRouter();
+    const titleClick = (routerPath: string) => {
+      router.push(routerPath);
+    };
     return {
-      titleClick
+      titleClick,
     };
   },
   components: {},

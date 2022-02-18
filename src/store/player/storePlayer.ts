@@ -1,5 +1,9 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { getPlayListDetai,getAlbumDetail,getSongsDetail } from "@/servers/allListDetail/listDetailAPI";
+import {
+  getPlayListDetai,
+  getAlbumDetail,
+  getSongsDetail,
+} from "@/servers/allListDetail/listDetailAPI";
 import { IArtist } from "@/components/player/types/artists";
 import { IListState } from "@/components/player/types/playerType";
 import { ActionContext, Module } from "vuex";
@@ -47,7 +51,7 @@ const ModulePlayer: Module<IPlayerState, IRootState> = {
     volume: 0.6,
     currentDuration: 0,
     currentTime: 0,
-    currentId:0,
+    currentId: 0,
     currentSong: undefined,
     songList: [],
     isShowSongDetail: false,
@@ -94,7 +98,7 @@ const ModulePlayer: Module<IPlayerState, IRootState> = {
     setCurrentSong(state: IPlayerState, song: IPlaySong | undefined) {
       state.isPause = false;
       state.currentSong = song;
-      state.currentId = song!.id
+      state.currentId = song!.id;
     },
     setCurrentSongById(state: IPlayerState, songId: number) {
       state.isPause = false;
@@ -122,8 +126,8 @@ const ModulePlayer: Module<IPlayerState, IRootState> = {
       context: ActionContext<IPlayerState, IRootState>,
       id: number
     ) {
-      const {songs:songs} = await getSongsDetail(id)
-      const songList: IPlaySong[] = songs.map((song:any) => ({
+      const { songs: songs } = await getSongsDetail(id);
+      const songList: IPlaySong[] = songs.map((song: any) => ({
         id: song.id,
         name: song.name,
         subName: song.alia[0],
@@ -134,7 +138,7 @@ const ModulePlayer: Module<IPlayerState, IRootState> = {
           picUrl: song.al.picUrl,
         },
         artists: song.ar.map(
-          (item:any) => ({ id: item.id, name: item.name } as IArtist)
+          (item: any) => ({ id: item.id, name: item.name } as IArtist)
         ),
         songUrl: `https://music.163.com/song/media/outer/url?id=${song.id}.mp3`,
       }));
@@ -151,8 +155,8 @@ const ModulePlayer: Module<IPlayerState, IRootState> = {
         .reduce((initValue, currentValue) => initValue + "," + currentValue);
       // const songDetailUrl = `/api/song/detail?ids=${songIdStr}`;
       /** 根据id数组获取歌曲详情 */
-      const {songs:songs} = await getSongsDetail(songIdStr)
-      const songList: IPlaySong[] = songs.map((song:any) => ({
+      const { songs: songs } = await getSongsDetail(songIdStr);
+      const songList: IPlaySong[] = songs.map((song: any) => ({
         id: song.id,
         name: song.name,
         subName: song.alia[0],
@@ -163,7 +167,7 @@ const ModulePlayer: Module<IPlayerState, IRootState> = {
           picUrl: song.al.picUrl,
         },
         artists: song.ar.map(
-          (item:any) => ({ id: item.id, name: item.name } as IArtist)
+          (item: any) => ({ id: item.id, name: item.name } as IArtist)
         ),
         songUrl: `https://music.163.com/song/media/outer/url?id=${song.id}.mp3`,
         duration: Math.floor((song.dt || 0) / 1000),
@@ -183,15 +187,17 @@ const ModulePlayer: Module<IPlayerState, IRootState> = {
     ) {
       const { id, noSetCurrentSong } = payload;
       /** 根据id获取歌单详情 */
-      const {playlist:playlist} = await getPlayListDetai(id)
+      const { playlist: playlist } = await getPlayListDetai(id);
       const songIdStr = playlist.trackIds
-        .map((item:any) => String(item.id))
-        .reduce((initValue:any, currentValue:any) => initValue + "," + currentValue);
+        .map((item: any) => String(item.id))
+        .reduce(
+          (initValue: any, currentValue: any) => initValue + "," + currentValue
+        );
       // const songDetailUrl = `/api/song/detail?ids=${songIdStr}`;
       /** 根据id数组获取歌曲详情 */
-      const {songs:songs} = await getSongsDetail(songIdStr)
+      const { songs: songs } = await getSongsDetail(songIdStr);
 
-      const songList: IPlaySong[] = songs.map((song:any) => ({
+      const songList: IPlaySong[] = songs.map((song: any) => ({
         id: song.id,
         name: song.name,
         subName: song.alia[0],
@@ -202,7 +208,7 @@ const ModulePlayer: Module<IPlayerState, IRootState> = {
           picUrl: song.al.picUrl,
         },
         artists: song.ar.map(
-          (item:any) => ({ id: item.id, name: item.name } as IArtist)
+          (item: any) => ({ id: item.id, name: item.name } as IArtist)
         ),
         songUrl: `https://music.163.com/song/media/outer/url?id=${song.id}.mp3`,
         duration: Math.floor((song.dt || 0) / 1000),
@@ -218,16 +224,18 @@ const ModulePlayer: Module<IPlayerState, IRootState> = {
       albumId: number
     ) {
       /** 根据专辑id获取专辑下的歌曲id，并设置第一首歌为当前播放的歌曲 */
-      const albumSongs = await getAlbumDetail(albumId)
-      const albumSongIds = albumSongs.map((song:any) => song.id);
+      const albumSongs = await getAlbumDetail(albumId);
+      const albumSongIds = albumSongs.map((song: any) => song.id);
       const currentId = albumSongIds[0];
       const songIdStr = albumSongIds
-        .map((id:number) => String(id))
-        .reduce((initValue:any, currentValue:any) => initValue + "," + currentValue);
+        .map((id: number) => String(id))
+        .reduce(
+          (initValue: any, currentValue: any) => initValue + "," + currentValue
+        );
       // const songDetailUrl = `/api/song/detail?ids=${songIdStr}`;
       /** 根据id数组获取歌曲详情 */
-      const {songs:songs} = await getSongsDetail(songIdStr)
-      const songList: IPlaySong[] = songs.map((song:any) => ({
+      const { songs: songs } = await getSongsDetail(songIdStr);
+      const songList: IPlaySong[] = songs.map((song: any) => ({
         id: song.id,
         name: song.name,
         subName: song.alia[0],
@@ -238,7 +246,7 @@ const ModulePlayer: Module<IPlayerState, IRootState> = {
           picUrl: song.al.picUrl,
         },
         artists: song.ar.map(
-          (item:any) => ({ id: item.id, name: item.name } as IArtist)
+          (item: any) => ({ id: item.id, name: item.name } as IArtist)
         ),
         songUrl: `https://music.163.com/song/media/outer/url?id=${song.id}.mp3`,
         duration: Math.floor((song.dt || 0) / 1000),

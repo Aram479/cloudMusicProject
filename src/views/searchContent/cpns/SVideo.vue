@@ -1,6 +1,12 @@
 <template>
   <div id="SVideo">
-    <VideoList :videoList="videoList" :isShowLoading="false" :isScroll="false" :inputValue="inputValue" :isBlod="true" />
+    <VideoList
+      :videoList="videoList"
+      :isShowLoading="false"
+      :isScroll="false"
+      :inputValue="inputValue"
+      :isBlod="true"
+    />
   </div>
 </template>
 
@@ -14,9 +20,9 @@ export default defineComponent({
       type: Array,
       default: () => [],
     },
-    inputValue:{
-      type:String,
-      default:''
+    inputValue: {
+      type: String,
+      default: "",
     },
   },
   setup() {

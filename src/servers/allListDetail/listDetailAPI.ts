@@ -14,11 +14,11 @@ enum listDetailAPI {
 
   /* 专辑数据 */
   albumDetailUrl = "/album", //专辑详情，头部详情
-  albumCmtUrl = '/comment/album', //专辑评论
+  albumCmtUrl = "/comment/album", //专辑评论
 
   /* 单曲详情数据 */
   songDetailUrl = "/song/detail",
-  lyricUrl = '/lyric'
+  lyricUrl = "/lyric",
 }
 /* 请求歌单详情数据,需登录 */
 export function getPlayListDetai(id: number) {
@@ -104,13 +104,13 @@ export function getAlbumCmt(params: any) {
 }
 
 /* 请求单曲详情数据 */
-export function getSongsDetail(ids: number|string) {
+export function getSongsDetail(ids: number | string) {
   return zpRequest.get({
-    isLoading:true,
+    isLoading: true,
     url: listDetailAPI.songDetailUrl,
-    params:{
+    params: {
       ids,
-    }
+    },
   });
 }
 
@@ -118,8 +118,8 @@ export function getSongsDetail(ids: number|string) {
 export function getLyric(id: number) {
   return zpRequest.get({
     url: listDetailAPI.lyricUrl,
-    params:{
+    params: {
       id,
-    }
+    },
   });
 }

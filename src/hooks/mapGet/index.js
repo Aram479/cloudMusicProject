@@ -1,7 +1,4 @@
-import { useGetters } from './useGetters';
-import { useState } from './useState';
+import { useGetters } from "./useGetters";
+import { useState } from "./useState";
 
-export {
-  useGetters,
-  useState
-}
+export { useGetters, useState };

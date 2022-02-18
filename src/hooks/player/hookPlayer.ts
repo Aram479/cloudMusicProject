@@ -1,6 +1,10 @@
 import { computed, reactive, Ref } from "vue";
 import { ElMessage } from "element-plus";
-import { IPlayerState, ISongState, IUsePlayerState } from "@/components/player/types/playerType";
+import {
+  IPlayerState,
+  ISongState,
+  IUsePlayerState,
+} from "@/components/player/types/playerType";
 import { IUseAudioReturn } from "./hookPlayerType";
 import { useStore } from "vuex";
 import _ from "lodash";
@@ -131,7 +135,6 @@ export const usePlayerState = (): IUsePlayerState => {
 
   /** 展开｜关闭 播放列表 */
   const toggleExpandSong = (state: boolean | undefined = undefined) => {
-
     if (state !== undefined) {
       playerState.expandSong = state;
     } else {

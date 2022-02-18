@@ -52,20 +52,20 @@ export function getVideoAllList(offset?: number) {
   });
 }
 /* 请求视频/mv详情数据 */
-export function getVideoDetail(data:any) {
+export function getVideoDetail(data: any) {
   /* 类型为video请求video */
-  if(data.type == 'video'){
+  if (data.type == "video") {
     return axios.all([
-      zpRequest.get({ url: videoAPI.videoDetail, params: { id:data.id } }),
-      zpRequest.get({ url: videoAPI.videoPlayer, params: { id:data.id } }),
-      zpRequest.get({ url: videoAPI.videoRelated, params: { id:data.id } }),
+      zpRequest.get({ url: videoAPI.videoDetail, params: { id: data.id } }),
+      zpRequest.get({ url: videoAPI.videoPlayer, params: { id: data.id } }),
+      zpRequest.get({ url: videoAPI.videoRelated, params: { id: data.id } }),
     ]);
   }
   /* 否则请求mv */
   return axios.all([
     zpRequest.get({ url: videoAPI.mvDetail, params: { mvid: data.id } }),
-    zpRequest.get({ url: videoAPI.mvPlayer, params: { id:data.id } }),
-    zpRequest.get({ url: videoAPI.mvRelated, params: { mvid:data.id } }),
+    zpRequest.get({ url: videoAPI.mvPlayer, params: { id: data.id } }),
+    zpRequest.get({ url: videoAPI.mvRelated, params: { mvid: data.id } }),
   ]);
 }
 /* 视频评论数据 */

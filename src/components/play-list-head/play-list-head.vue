@@ -145,7 +145,7 @@ export default defineComponent({
       },
     ]);
     /* 头部标签点击事件 */
-    const tagClick:any = (tag: any, id?: number) => {
+    const tagClick: any = (tag: any, id?: number) => {
       /* 发出事件,点击同样不发出 */
       if (tagName.value !== tag) emit("changeTagName", tag, id);
 

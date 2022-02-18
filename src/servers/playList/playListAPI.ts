@@ -4,7 +4,7 @@ enum playListAPI {
   playListTagUrl = "/playlist/catlist",
   playListUrl = "/top/playlist", //歌单列表页面地址
   /* 用户歌单列表 */
-  userSheet = '/user/playlist'
+  userSheet = "/user/playlist",
 }
 /* 请求页面数据 */
 export function getPlayListTag() {

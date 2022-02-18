@@ -6,10 +6,15 @@
         :class="['newMusic-list-item', currentId === item.id && 'active']"
         v-for="(item, index) in musicList"
         :key="item.id"
-        @click="newMscItemClick(item,item.id)"
+        @click="newMscItemClick(item, item.id)"
       >
         <!-- 索引,点击切换音乐图标 -->
-        <span class="newMusic-list-index" v-minTenIndex v-if="currentId !== item.id">{{ index + 1 }}</span>
+        <span
+          class="newMusic-list-index"
+          v-minTenIndex
+          v-if="currentId !== item.id"
+          >{{ index + 1 }}</span
+        >
         <i class="iconfont icon-icon_horn newMusic-list-index" v-else></i>
         <!-- 图片 -->
         <el-image
@@ -30,8 +35,8 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref } from "vue";
-import { useStore } from 'vuex'
-import { useState } from '@/hooks/mapGet/index.js'
+import { useStore } from "vuex";
+import { useState } from "@/hooks/mapGet/index.js";
 export default defineComponent({
   name: "musicList",
 
@@ -46,14 +51,14 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const state = useState('player',['currentId'])
-    const store = useStore()
+    const state = useState("player", ["currentId"]);
+    const store = useStore();
     const isActive = ref(-1);
     /* 点击最新音乐添加背景色 */
-    const newMscItemClick = (item: any,id:number) => {
+    const newMscItemClick = (item: any, id: number) => {
       isActive.value = +id;
       //播放音乐,电台不播
-      if(item.type){
+      if (item.type) {
         store.dispatch("player/setCurrentSong", id);
       }
     };

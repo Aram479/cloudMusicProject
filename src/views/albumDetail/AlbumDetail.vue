@@ -77,8 +77,9 @@ export default defineComponent({
           store.dispatch("Detail/getAlbumDetail", route.params.id);
           store.dispatch("Detail/getAlbumCmt", alumCmtResData);
         }
-      },{
-        immediate:true,
+      },
+      {
+        immediate: true,
       }
     );
     return {

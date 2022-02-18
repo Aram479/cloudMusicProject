@@ -2,7 +2,12 @@
   <div id="SSheet">
     <div class="SSheet-box">
       <!-- 歌单item项 -->
-      <div class="Sheet-item" v-for="item in sheetList" :key="item.id" @click="sheetClick(item.id)">
+      <div
+        class="Sheet-item"
+        v-for="item in sheetList"
+        :key="item.id"
+        @click="sheetClick(item.id)"
+      >
         <div class="Sheet-item-left">
           <!-- 图片 -->
           <el-image :src="item.coverImgUrl">
@@ -11,7 +16,10 @@
             </template>
           </el-image>
           <!-- 歌单名 -->
-          <span class="sheet-name linelittle" v-html="lightKeyword(item.name,inputValue)"></span>
+          <span
+            class="sheet-name linelittle"
+            v-html="lightKeyword(item.name, inputValue)"
+          ></span>
         </div>
         <!-- 曲目数 -->
         <span class="song-count">{{ item.trackCount }}首</span>
@@ -23,8 +31,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive,inject, ref } from "vue";
-import { brightenKeyword }from '@/hooks/lightKeyword'
+import { defineComponent, reactive, inject, ref } from "vue";
+import { brightenKeyword } from "@/hooks/lightKeyword";
 import { useRouter } from "vue-router";
 export default defineComponent({
   name: "SSheet",
@@ -33,22 +41,22 @@ export default defineComponent({
       type: Array,
       default: () => [],
     },
-    inputValue:{
-      type:String,
-      default:''
-    }
+    inputValue: {
+      type: String,
+      default: "",
+    },
   },
   setup() {
-    const router = useRouter()
-     /* 关键字高亮 */
-    const lightKeyword = brightenKeyword
+    const router = useRouter();
+    /* 关键字高亮 */
+    const lightKeyword = brightenKeyword;
     /* 歌单点击事件 */
     const sheetClick = (id: number) => {
       router.push(`/main/playlistdetail/${id}`);
     };
     return {
       lightKeyword,
-      sheetClick
+      sheetClick,
     };
   },
   components: {},
@@ -65,7 +73,7 @@ export default defineComponent({
   align-items: center;
   padding: 10px;
 }
-.Sheet-item:nth-child(2n+1){
+.Sheet-item:nth-child(2n + 1) {
   background-color: #f9fafb;
 }
 .Sheet-item-left {

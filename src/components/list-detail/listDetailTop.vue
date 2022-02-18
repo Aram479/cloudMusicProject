@@ -73,12 +73,16 @@
             <span>标签：</span>
             <span
               class="tag-box"
-              v-for="(tags,index) in detailTopInfo.tags"
+              v-for="(tags, index) in detailTopInfo.tags"
               :key="tags"
               @click="tagClick(tags, detailType)"
             >
               <span>{{ tags }}</span>
-              <span class="slash" v-show="index !== (detailTopInfo.tags.length-1)">/</span>
+              <span
+                class="slash"
+                v-show="index !== detailTopInfo.tags.length - 1"
+                >/</span
+              >
             </span>
             <span v-show="!detailTopInfo.tags.length">暂无标签</span>
           </div>
@@ -98,7 +102,9 @@
           <!-- 简介 -->
           <span class="description">
             <span>简介：</span>
-            <span class="aaa" v-if="detailTopInfo.description">{{ detailTopInfo.description }}</span>
+            <span class="aaa" v-if="detailTopInfo.description">{{
+              detailTopInfo.description
+            }}</span>
             <span v-else>暂无简介</span>
           </span>
         </div>
@@ -172,7 +178,7 @@ export default defineComponent({
   },
   setup() {
     const router = useRouter();
-    const store= useStore()
+    const store = useStore();
     /* 标签点击事件，跳转到歌单 */
     const tagClick = (tag: string | number, type: string) => {
       if (type == "歌单") {
@@ -187,7 +193,7 @@ export default defineComponent({
     };
     return {
       tagClick,
-      handlePlaylist
+      handlePlaylist,
     };
   },
   components: {},

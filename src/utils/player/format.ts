@@ -1,6 +1,6 @@
 import { IArtist } from "@/components/player/types/artists";
-import { ILyric } from "@/components/player/types/formatLyric"
-import { IDateFormat } from '@/components/player/types/formatDate'
+import { ILyric } from "@/components/player/types/formatLyric";
+import { IDateFormat } from "@/components/player/types/formatDate";
 /** 返回指定类型的对象的键名数组 */
 export function keysOf<T>(obj: T) {
   return Object.keys(obj) as (keyof T)[];
@@ -182,4 +182,3 @@ export const highLightKeywords = (
     `<span class="${classString}">${keywords}</span>`
   );
 };
-

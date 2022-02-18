@@ -11,7 +11,7 @@
 
           <div class="back-title" v-if="commentItem.beReplied.length">
             <span class="title-backtname"
-              >{{ commentItem.beReplied[0].user.nickname}}：</span
+              >{{ commentItem.beReplied[0].user.nickname }}：</span
             >
             {{ commentItem.beReplied[0].content }}
           </div>

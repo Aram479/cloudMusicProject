@@ -14,15 +14,22 @@
           <div v-if="playingSong" class="wrapper">
             <div
               class="cover-img cursor-pointer"
-              @click="displaySongDetail(playingSong ? playingSong.id : undefined)"
+              @click="
+                displaySongDetail(playingSong ? playingSong.id : undefined)
+              "
             >
-              <img :src="`${playingSong.coverImg}?param=80y80`" alt="歌曲封面图片" />
+              <img
+                :src="`${playingSong.coverImg}?param=80y80`"
+                alt="歌曲封面图片"
+              />
             </div>
             <div class="song-info-wrapper">
               <div class="song-info cursor-pointer">
                 <span
                   class="song-name word-ellipsis"
-                  @click="displaySongDetail(playingSong ? playingSong.id : undefined)"
+                  @click="
+                    displaySongDetail(playingSong ? playingSong.id : undefined)
+                  "
                   >{{ playingSong.name }}</span
                 >
                 <div class="parting-line">-</div>
@@ -55,13 +62,27 @@
         <!-- 播放器中部 -->
         <div class="center-part">
           <div class="prev-song-wrapper" @click="playPrev">
-            <mp-icon icon="icon-skip-back-mini-fill" color="#d33a30" :size="50" />
+            <mp-icon
+              icon="icon-skip-back-mini-fill"
+              color="#d33a30"
+              :size="50"
+            />
           </div>
           <div v-if="isPause" class="play-song-wrapper" @click="playSong">
-            <mp-icon icon="icon-play-filling" color="#d33a30" :size="40" :scale="1" />
+            <mp-icon
+              icon="icon-play-filling"
+              color="#d33a30"
+              :size="40"
+              :scale="1"
+            />
           </div>
           <div v-else class="play-song-wrapper" @click="playPause">
-            <mp-icon icon="icon-iov-pause" color="#d33a30" :size="40" :scale="1" />
+            <mp-icon
+              icon="icon-iov-pause"
+              color="#d33a30"
+              :size="40"
+              :scale="1"
+            />
           </div>
           <div class="next-song-wrapper" @click="playNext">
             <mp-icon icon="icon-skipnext" color="#d33a30" :size="50" />
@@ -89,7 +110,10 @@
                 />
               </el-tooltip>
             </div>
-            <div class="play-list-wrapper mr-20" @click.stop="toggleExpandSong()">
+            <div
+              class="play-list-wrapper mr-20"
+              @click.stop="toggleExpandSong()"
+            >
               <mp-icon
                 icon="icon-24gf-playlist"
                 :color="playerState.expandSong ? '#d33a30' : '#4b4b4b'"
@@ -98,7 +122,12 @@
               />
             </div>
             <div class="show-word-wrapper mr-20">
-              <mp-icon icon="icon-geciweidianji" color="#4b4b4b" :size="20" :scale="1" />
+              <mp-icon
+                icon="icon-geciweidianji"
+                color="#4b4b4b"
+                :size="20"
+                :scale="1"
+              />
             </div>
             <volume-adjuster
               :volume="currentVolume * 100"
@@ -106,7 +135,12 @@
             >
               <template v-slot:content>
                 <div class="adjust-volume-wrapper mr-20">
-                  <mp-icon icon="icon-laba" color="#4b4b4b" :size="20" :scale="1" />
+                  <mp-icon
+                    icon="icon-laba"
+                    color="#4b4b4b"
+                    :size="20"
+                    :scale="1"
+                  />
                 </div>
               </template>
             </volume-adjuster>
@@ -145,7 +179,9 @@
       <div class="song-list-wrapper">
         <div
           class="song-list"
-          :class="[playingSong && playingSong.id === song.id && 'song-list-active']"
+          :class="[
+            playingSong && playingSong.id === song.id && 'song-list-active',
+          ]"
           v-for="song in storeSongList"
           :key="song.id"
           @dblclick="playSongById(song.id)"
@@ -204,7 +240,10 @@ import { IPlaySong } from "./types/player";
 import { useStore } from "vuex";
 import { IListState, ISongState } from "./types/playerType";
 import { useAudio, usePlayerState } from "@/hooks/player/hookPlayer";
-import { formatArtistListToString,transformSecondToMinute } from "@/utils/player/format";
+import {
+  formatArtistListToString,
+  transformSecondToMinute,
+} from "@/utils/player/format";
 
 import MPIcon from "@/baseui/player/MPIcon.vue";
 import VolumeAdjuster from "@/baseui/player/volume.vue";
@@ -241,10 +280,14 @@ export default defineComponent({
     const currentVolume = computed(() => store.state.player.volume);
 
     /** 当前歌曲的时长 */
-    const currentSongDuration = computed(() => store.state.player.currentDuration);
+    const currentSongDuration = computed(
+      () => store.state.player.currentDuration
+    );
 
     /** 当前歌曲的已播放的时长 */
-    const currentSongPlayedDuration = computed(() => store.state.player.currentTime);
+    const currentSongPlayedDuration = computed(
+      () => store.state.player.currentTime
+    );
 
     /** 当前歌曲的播放进度 */
     const currentPlayRate = computed(
@@ -255,19 +298,25 @@ export default defineComponent({
     const currentPlayBackType = computed(() => store.state.player.playBackType);
 
     /** 歌曲列表 */
-    const storeSongList = computed<IPlaySong[]>(() => store.state.player.songList);
+    const storeSongList = computed<IPlaySong[]>(
+      () => store.state.player.songList
+    );
 
     /** 当前播放的歌曲 */
     const storeCurrentSong = computed<IPlaySong>(() => {
       return store.state.player.currentSong as IPlaySong;
     });
     /** 是否展示歌曲详情 */
-    const isShowSongDetail = computed(() => store.state.player.isShowSongDetail);
+    const isShowSongDetail = computed(
+      () => store.state.player.isShowSongDetail
+    );
 
     /** 当前播放的歌曲（没有歌曲播放的时候为undefined）*/
     const playingSong = computed(() => {
       if (currentPlayId.value !== -1) {
-        return storeSongList.value.find((item) => item.id === currentPlayId.value);
+        return storeSongList.value.find(
+          (item) => item.id === currentPlayId.value
+        );
       }
       return undefined;
     });
@@ -440,10 +489,16 @@ export default defineComponent({
     };
 
     /** 控制播放进度 */
-    const handlePlayRateChange = (innerPercentage: number, percentage?: number) => {
+    const handlePlayRateChange = (
+      innerPercentage: number,
+      percentage?: number
+    ) => {
       if (percentage !== undefined) {
         songState.isAdjusting = false;
-        store.commit("player/setCurrentTime", currentSongDuration.value * percentage);
+        store.commit(
+          "player/setCurrentTime",
+          currentSongDuration.value * percentage
+        );
         if (audioPlayerRef.value) {
           audioPlayerRef.value.currentTime = currentSongPlayedDuration.value;
         }

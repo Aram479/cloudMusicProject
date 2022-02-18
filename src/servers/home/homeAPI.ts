@@ -27,12 +27,12 @@ export function getHomeCmddPlayList() {
   });
 }
 /* 获取独家放送数据 */
-export function getAlonePlayList(limit:number = 4,offset:number = 0) {
+export function getAlonePlayList(limit: number = 4, offset: number = 0) {
   return zpRequest.get({
     url: homeAPI.alonePlayListUrl,
     params: {
       limit,
-      offset
+      offset,
     },
   });
 }

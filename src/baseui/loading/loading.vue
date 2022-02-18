@@ -1,9 +1,6 @@
 <template>
   <div id="loading">
-    <div
-      class="play-loading"
-      :style="{height: setHeight + 'px' }"
-    >
+    <div class="play-loading" :style="{ height: setHeight + 'px' }">
       <el-icon v-if="isIcon">
         <Loading class="is-loading" />
       </el-icon>
@@ -26,10 +23,10 @@ export default defineComponent({
       type: String,
       default: "载入中...",
     },
-    isIcon:{
-      type:Boolean,
-      default:true
-    }
+    isIcon: {
+      type: Boolean,
+      default: true,
+    },
   },
   setup() {
     return {};
@@ -43,7 +40,7 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   align-items: center;
-  width:100%;
+  width: 100%;
   height: 350px;
   font-size: 16px;
   color: #a8a8a8;

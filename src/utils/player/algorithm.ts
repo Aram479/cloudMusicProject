@@ -59,7 +59,10 @@ export function playerNextReOrder<T>(
       return undefined;
     }
     return arr[findIndex + 1];
-  } else if (playBackType === "icon-xunhuanbofang" || playBackType === "icon-danquxunhuan") {
+  } else if (
+    playBackType === "icon-xunhuanbofang" ||
+    playBackType === "icon-danquxunhuan"
+  ) {
     /** 列表循环或者单曲循环 */
     if (isLastOne) {
       return arr[0];

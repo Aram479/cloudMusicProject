@@ -5,7 +5,10 @@
     style="overflow: auto"
     :infinite-scroll-distance="200"
     :infinite-scroll-immediate="false"
-    :style="{width:isScroll? '1080px':'100%',height:isScroll? '480px':'100%'}"
+    :style="{
+      width: isScroll ? '1080px' : '100%',
+      height: isScroll ? '480px' : '100%',
+    }"
   >
     <div class="alonePlay-playlist" v-if="videoList.length">
       <!-- 每个视频item -->
@@ -44,21 +47,25 @@
             isBlod ? 'linelittle' : 'morelittle',
             isBlod && 'blod',
           ]"
-          v-html="lightKeyword(item.title,inputValue)"
+          v-html="lightKeyword(item.title, inputValue)"
           v-else
-        >
-        </p>
+        ></p>
         <!-- 视频作者 -->
-        <span class="songe" v-if="item.creator && !inputValue">{{ item.creator.nickname || item.creator[0]?.userName }}</span>
+        <span class="songe" v-if="item.creator && !inputValue">{{
+          item.creator.nickname || item.creator[0]?.userName
+        }}</span>
         <!-- 视频作者高亮 -->
-        <span class="songe" v-else-if="item.creator && inputValue" v-html="lightKeyword(item?.creator[0]?.userName,inputValue)"></span>
+        <span
+          class="songe"
+          v-else-if="item.creator && inputValue"
+          v-html="lightKeyword(item?.creator[0]?.userName, inputValue)"
+        ></span>
         <!-- 动画图标 -->
         <div class="animatIcon">
           <i class="iconfont icon-play"></i>
         </div>
-
       </div>
-      <Loading :setHeight="50" v-show="isShowLoading" style="margin:0 auto" />
+      <Loading :setHeight="50" v-show="isShowLoading" style="margin: 0 auto" />
     </div>
     <Loading v-else />
   </div>
@@ -66,7 +73,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref } from "vue";
-import { brightenKeyword }from '@/hooks/lightKeyword'
+import { brightenKeyword } from "@/hooks/lightKeyword";
 import _ from "lodash";
 import Loading from "@/baseui/loading/loading.vue";
 import PlayListBefore from "@/baseui/playListBefore/playListBefore.vue";
@@ -87,32 +94,32 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
-    isScroll:{
-      type:Boolean,
-      default:true
+    isScroll: {
+      type: Boolean,
+      default: true,
     },
     /* 高亮关键字 */
-    inputValue:{
-      type:String,
-      default:''
+    inputValue: {
+      type: String,
+      default: "",
     },
   },
   setup(props, { emit }) {
-    const router = useRouter()
+    const router = useRouter();
     /* 防抖 */
     const scrollLoad = _.debounce(() => {
       emit("scrollLoad");
     }, 500);
     /* 关键字高亮 */
-    const lightKeyword = brightenKeyword
+    const lightKeyword = brightenKeyword;
     /* mv点击事件 */
-    const mvClick = (id:number | string)=>{
-      router.push(`/videodetail/${id}`)
-    }
+    const mvClick = (id: number | string) => {
+      router.push(`/videodetail/${id}`);
+    };
     return {
       scrollLoad,
       lightKeyword,
-      mvClick
+      mvClick,
     };
   },
 

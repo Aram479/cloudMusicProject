@@ -86,7 +86,7 @@ const videoModule: Module<IVideoState, IRootState> = {
     },
     /* 获取视频/mv详情页面数据 */
     async getVideoDetail({ state, commit }, payload: any) {
-      state.videoDetail = {}
+      state.videoDetail = {};
       const [detail, player, related] = await getVideoDetail(payload);
       commit("setVideoDetail", {
         info: detail.data,

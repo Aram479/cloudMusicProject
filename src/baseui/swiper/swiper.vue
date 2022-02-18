@@ -1,8 +1,12 @@
 <template>
   <div id="swiper">
     <el-carousel class="swiper" :interval="3000" type="card" height="200px">
-      <el-carousel-item v-for="(item, index) in swiperList" :key="index" @click="swiperPlayerClick(item.targetId,item.targetType)">
-        <div class="text">{{item.typeTitle}}</div>
+      <el-carousel-item
+        v-for="(item, index) in swiperList"
+        :key="index"
+        @click="swiperPlayerClick(item.targetId, item.targetType)"
+      >
+        <div class="text">{{ item.typeTitle }}</div>
         <el-image class="swiper-img" :src="item.imageUrl"></el-image>
       </el-carousel-item>
     </el-carousel>
@@ -22,16 +26,16 @@ export default defineComponent({
     },
   },
   setup() {
-    const store = useStore()
+    const store = useStore();
     /* 点击最新音乐添加背景色 */
-    const swiperPlayerClick = (id:number,type:number) => {
+    const swiperPlayerClick = (id: number, type: number) => {
       //播放音乐
-      if(type == 1){
-       store.dispatch("player/setCurrentSong", id);
+      if (type == 1) {
+        store.dispatch("player/setCurrentSong", id);
       }
     };
     return {
-      swiperPlayerClick
+      swiperPlayerClick,
     };
   },
   components: {},
@@ -43,11 +47,11 @@ export default defineComponent({
   position: relative;
   overflow: hidden;
 }
-.el-image{
+.el-image {
   border-radius: 5px;
 }
 .text {
-  position:absolute ;
+  position: absolute;
   bottom: 8px;
   right: 0;
   width: 80px;

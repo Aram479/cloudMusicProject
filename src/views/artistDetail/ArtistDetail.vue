@@ -63,8 +63,9 @@ export default defineComponent({
           store.dispatch("Detail/getArtistMv", route.params.id);
           store.dispatch("Detail/getArtistDesc", route.params.id);
         }
-      },{
-        immediate:true,
+      },
+      {
+        immediate: true,
       }
     );
     return {

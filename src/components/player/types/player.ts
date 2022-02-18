@@ -1,7 +1,4 @@
-import {
-  IAlbum,
-  IArtist,
-} from "./artists";
+import { IAlbum, IArtist } from "./artists";
 import { IListState } from "./playerType";
 
 export interface IPlaySong {
@@ -22,7 +19,7 @@ export interface IPlayerState {
   playBackType: IListState /** 当前播放顺序 */;
   playBackTypeList: IListState[] /** 所有播放顺序 */;
   volume: number /** 当前音量 */;
-  currentId:number
+  currentId: number;
   currentSong?: IPlaySong /** 当前播放的歌曲 */;
   currentDuration: number /** 当前歌曲的时长 */;
   currentTime: number /** 当前歌曲播放到的时间点 */;

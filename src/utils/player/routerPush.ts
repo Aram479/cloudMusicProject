@@ -1,6 +1,6 @@
 /* 导入自己的router */
 import router from "@/router";
-import store from '@/store'
+import store from "@/store";
 /** 跳转到MV详情 */
 export const gotoMVDetail = (id?: number | string) => {
   if (id) {
@@ -10,7 +10,7 @@ export const gotoMVDetail = (id?: number | string) => {
 
 /** 跳转到歌手详情 */
 export const gotoArtistDetail = (id?: number) => {
-  store.state.player.isShowSongDetail = !store.state.player.isShowSongDetail
+  store.state.player.isShowSongDetail = !store.state.player.isShowSongDetail;
   if (id) {
     router.push(`/main/artistdetail/${id}`);
   }
@@ -18,7 +18,7 @@ export const gotoArtistDetail = (id?: number) => {
 
 /** 前往专辑详情 */
 export const gotoAlbumDetail = (id?: number) => {
-  store.state.player.isShowSongDetail = !store.state.player.isShowSongDetail
+  store.state.player.isShowSongDetail = !store.state.player.isShowSongDetail;
   if (id) {
     router.push(`/main/albumdetail/${id}`);
   }

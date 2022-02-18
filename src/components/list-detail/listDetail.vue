@@ -28,13 +28,19 @@
           ></i>
           <!-- 索引 -->
           <div class="songIndex" v-show="currentId !== song.id" v-minTenIndex>
-            {{ songIndex+1 }}
+            {{ songIndex + 1 }}
           </div>
           <!-- lightKeyword -->
           <!-- 歌名 -->
-          <div class="song-name linelittle" v-if="!inputValue">{{ song.name }}</div>
+          <div class="song-name linelittle" v-if="!inputValue">
+            {{ song.name }}
+          </div>
           <!-- 歌名高亮 -->
-          <div class="song-name linelittle" v-else v-html="lightKeyword(song.name,inputValue)"></div>
+          <div
+            class="song-name linelittle"
+            v-else
+            v-html="lightKeyword(song.name, inputValue)"
+          ></div>
           <!-- 歌手 -->
           <div class="songer linelittle">
             <span
@@ -44,14 +50,23 @@
             >
               <span v-if="!inputValue">{{ songer.name }}</span>
               <!-- 歌手高亮 -->
-              <span v-else v-html="lightKeyword(songer.name,inputValue)"></span>
+              <span
+                v-else
+                v-html="lightKeyword(songer.name, inputValue)"
+              ></span>
               <span class="slash">/</span>
             </span>
           </div>
           <!-- 专辑 -->
-          <div class="album linelittle" v-if="!inputValue">{{ song.al?.name || song.album?.name }}</div>
+          <div class="album linelittle" v-if="!inputValue">
+            {{ song.al?.name || song.album?.name }}
+          </div>
           <!-- 专辑高亮 -->
-          <div class="album linelittle" v-else v-html="lightKeyword(song.album?.name,inputValue)"></div>
+          <div
+            class="album linelittle"
+            v-else
+            v-html="lightKeyword(song.album?.name, inputValue)"
+          ></div>
           <!-- 时长 -->
           <div class="duration">
             {{ $filters.formatTime(song.dt || song.duration, "mm:ss") }}
@@ -65,9 +80,9 @@
 
 <script lang="ts">
 import { computed, defineComponent, inject, reactive, ref, toRefs } from "vue";
-import { brightenKeyword }from '@/hooks/lightKeyword'
-import Loading from '@/baseui/loading/loading.vue'
-import { useState } from '@/hooks/mapGet/index.js'
+import { brightenKeyword } from "@/hooks/lightKeyword";
+import Loading from "@/baseui/loading/loading.vue";
+import { useState } from "@/hooks/mapGet/index.js";
 import { useStore } from "vuex";
 export default defineComponent({
   name: "listDetail",
@@ -76,14 +91,14 @@ export default defineComponent({
       type: Array,
       default: () => [],
     },
-    inputValue:{
-      type:String,
-      default:''
-    }
+    inputValue: {
+      type: String,
+      default: "",
+    },
   },
   setup(props) {
-    const state = useState('player',['currentId'])
-    const store = useStore()
+    const state = useState("player", ["currentId"]);
+    const store = useStore();
     const { musicList } = toRefs(props);
     /* 标题数据 */
     const listTitle = reactive([
@@ -97,7 +112,7 @@ export default defineComponent({
     const songItemClick = (id: number) => {
       isActive.value = id;
       //存储当前列表所有歌曲id为数组
-      const songIds = musicList.value.map((song:any) => song.id);
+      const songIds = musicList.value.map((song: any) => song.id);
       //播放当前歌曲
       store.dispatch("player/setSongListByIds", {
         ids: songIds,
@@ -105,7 +120,7 @@ export default defineComponent({
       });
     };
     /* 关键字高亮 */
-    const lightKeyword = brightenKeyword
+    const lightKeyword = brightenKeyword;
     return {
       ...state,
       isActive,
@@ -115,7 +130,7 @@ export default defineComponent({
     };
   },
   components: {
-    Loading
+    Loading,
   },
 });
 </script>

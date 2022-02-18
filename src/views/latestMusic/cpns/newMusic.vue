@@ -28,8 +28,12 @@
         </div>
         <!-- 歌手 -->
         <div class="songer linelittle">
-          <span class="songer-item" v-for="songer in item.artists" :key="songer.id">
-            <span>{{songer.name}}</span>
+          <span
+            class="songer-item"
+            v-for="songer in item.artists"
+            :key="songer.id"
+          >
+            <span>{{ songer.name }}</span>
             <span class="slash">/</span>
           </span>
         </div>
@@ -49,7 +53,7 @@
 import { defineComponent, ref, toRefs } from "vue";
 import Loading from "@/baseui/loading/loading.vue";
 import { useStore } from "vuex";
-import { useState } from '@/hooks/mapGet/index.js'
+import { useState } from "@/hooks/mapGet/index.js";
 export default defineComponent({
   name: "newMusic",
   props: {
@@ -59,8 +63,8 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const state = useState('player',['currentId'])
-    const store = useStore()
+    const state = useState("player", ["currentId"]);
+    const store = useStore();
     const { newMusicList } = toRefs(props);
     /* 存储被点击的id */
     const isActive = ref(-1);
@@ -68,7 +72,7 @@ export default defineComponent({
     const itemClick = (id: number) => {
       isActive.value = id;
       //存储当前列表所有歌曲id为数组
-      const songIds = newMusicList.value.map((song:any) => song.id);
+      const songIds = newMusicList.value.map((song: any) => song.id);
       //播放当前歌曲
       store.dispatch("player/setSongListByIds", {
         ids: songIds,

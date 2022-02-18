@@ -28,7 +28,7 @@ import AlonePlay from "./cpns/alonePlay.vue";
 import NewMusic from "./cpns/newMusic.vue";
 import CmdMv from "./cpns/cmdMv.vue";
 import DjprogramVue from "./cpns/Djprogram.vue";
-import Skeleton from './cpns/skeleton.vue'
+import Skeleton from "./cpns/skeleton.vue";
 export default defineComponent({
   name: "Home",
   setup() {

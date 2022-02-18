@@ -166,15 +166,15 @@ p:nth-child(3) {
   font-weight: bold;
   font-size: 12px;
 }
-.video-icon .iconfont{
+.video-icon .iconfont {
   font-size: 12px;
   margin-right: 3px;
 }
 .video-icon .durction {
-   position: absolute;
-   left: 115px;
-   bottom: 10px;
-   font-weight: bold;
+  position: absolute;
+  left: 115px;
+  bottom: 10px;
+  font-weight: bold;
 }
 .el-image,
 img {

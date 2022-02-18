@@ -18,8 +18,12 @@
     <div>曲目数：{{ musicCount }}</div>
   </div>
   <!-- 视频播放时间 -->
-  <div class="playTime" v-if="playTime" :style="{bottom: ~route.path.indexOf('/artistdetail')? '35px':'60px' }">
-    <div>{{$filters.formatTime(playTime,'mm:ss')}}</div>
+  <div
+    class="playTime"
+    v-if="playTime"
+    :style="{ bottom: ~route.path.indexOf('/artistdetail') ? '35px' : '60px' }"
+  >
+    <div>{{ $filters.formatTime(playTime, "mm:ss") }}</div>
   </div>
 </template>
 
@@ -51,8 +55,8 @@ export default defineComponent({
     },
   },
   setup() {
-    const route = useRoute()
-    return {route};
+    const route = useRoute();
+    return { route };
   },
   components: {},
 });
@@ -92,7 +96,8 @@ export default defineComponent({
 .author .icon-user1 {
   margin-right: 2px;
 }
-.update,.playTime {
+.update,
+.playTime {
   position: absolute;
   right: 6px;
   bottom: 50px;
@@ -104,7 +109,7 @@ export default defineComponent({
   text-align: center;
 }
 .playTime {
-  bottom:60px
+  bottom: 60px;
 }
 .musicCount {
   position: absolute;
@@ -116,5 +121,4 @@ export default defineComponent({
   font-weight: 700;
   font-style: italic;
 }
-
 </style>

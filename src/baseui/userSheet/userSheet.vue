@@ -1,60 +1,63 @@
 <template>
-  <div id='userSheet'>
+  <div id="userSheet">
     <!-- 创建和收藏的歌单 -->
-      <div class="sheet-type">
-        <!-- 标题 -->
-        <div class="sheet-item-title" @click="titleClick">
-          <i class="iconfont icon-youjiantou" v-if="!isList"></i>
-          <i class="iconfont icon-xiajiantou" v-else></i>
-          <span>{{sheetType}}</span>
-        </div>
-        <!-- 列表 -->
-        <div class="sheet-list" v-show="isList">
-          <div class="sheet-item" v-for="item in sheetList" :key="item" @click="userSheetClick(item.id)">
-            <i class="iconfont icon-musiclist"></i>
-            <span class="linelittle">{{item.name}}</span>
-          </div>
+    <div class="sheet-type">
+      <!-- 标题 -->
+      <div class="sheet-item-title" @click="titleClick">
+        <i class="iconfont icon-youjiantou" v-if="!isList"></i>
+        <i class="iconfont icon-xiajiantou" v-else></i>
+        <span>{{ sheetType }}</span>
+      </div>
+      <!-- 列表 -->
+      <div class="sheet-list" v-show="isList">
+        <div
+          class="sheet-item"
+          v-for="item in sheetList"
+          :key="item"
+          @click="userSheetClick(item.id)"
+        >
+          <i class="iconfont icon-musiclist"></i>
+          <span class="linelittle">{{ item.name }}</span>
         </div>
       </div>
+    </div>
   </div>
 </template>
 
-<script lang='ts'>
-import { defineComponent, reactive, ref } from 'vue'
-import { useRouter } from 'vue-router'
+<script lang="ts">
+import { defineComponent, reactive, ref } from "vue";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
-  name: 'userSheet',
-  props:{
-    sheetType:{
-      type:String,
-      default: ''
+  name: "userSheet",
+  props: {
+    sheetType: {
+      type: String,
+      default: "",
     },
-    sheetList:{
-      type:Array,
-      default:()=>[]
+    sheetList: {
+      type: Array,
+      default: () => [],
     },
   },
   setup() {
-    const router = useRouter()
-    const userSheetClick = (id:number)=>{
-      router.push(`/main/playlistdetail/${id}`)
-    }
-    const isList = ref(false)
+    const router = useRouter();
+    const userSheetClick = (id: number) => {
+      router.push(`/main/playlistdetail/${id}`);
+    };
+    const isList = ref(false);
     /* 显示和隐藏列表内容 */
-    const titleClick = ()=>{
-      isList.value = !isList.value
-    }
+    const titleClick = () => {
+      isList.value = !isList.value;
+    };
     return {
       isList,
       userSheetClick,
-      titleClick
-    }
+      titleClick,
+    };
   },
-  components: {
-
-  },
-})
+  components: {},
+});
 </script>
 
 <style scoped>

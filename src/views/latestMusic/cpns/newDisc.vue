@@ -8,7 +8,12 @@
       </div>
       <!-- 右边新碟列表 -->
       <div class="disc">
-        <div class="disc-item" v-for="item in newDiscList" :key="item.id" @click="albumClick(item.id)">
+        <div
+          class="disc-item"
+          v-for="item in newDiscList"
+          :key="item.id"
+          @click="albumClick(item.id)"
+        >
           <el-image :src="item.picUrl">
             <template #placeholder>
               <img src="@/assets/img/no-img.bb9c4fe3.png" />
@@ -45,15 +50,15 @@ export default defineComponent({
     },
   },
   setup() {
-    const router = useRouter()
+    const router = useRouter();
     const date = Date.now();
     /* 点击专辑跳转详情 */
-    const albumClick = (id:number)=>{
-      router.push(`/main/albumdetail/${id}`)
-    }
+    const albumClick = (id: number) => {
+      router.push(`/main/albumdetail/${id}`);
+    };
     return {
       date,
-      albumClick
+      albumClick,
     };
   },
   components: {

@@ -33,7 +33,10 @@
       height="380px"
       class="h-80 w-[380px] mt-6 border-r border-solid border-gray-200"
     >
-      <div class="cursor-pointer" v-if="formatedLyrics && formatedLyrics.length > 0">
+      <div
+        class="cursor-pointer"
+        v-if="formatedLyrics && formatedLyrics.length > 0"
+      >
         <div
           v-for="(lyric, index) in formatedLyrics"
           :key="index"
@@ -44,7 +47,10 @@
           <div>{{ lyric.transText }}</div>
         </div>
         <!-- 歌词贡献者 -->
-        <div class="lyric-item pb-5 text-sm text-gray-600 bg-opacity-5" v-if="lyricUser">
+        <div
+          class="lyric-item pb-5 text-sm text-gray-600 bg-opacity-5"
+          v-if="lyricUser"
+        >
           歌词贡献者：<span>{{ lyricUser.nickname }}</span>
         </div>
         <!-- 歌词翻译贡献者 -->
@@ -55,7 +61,10 @@
           歌词贡献者：<span>{{ transLyricUser.nickname }}</span>
         </div>
       </div>
-      <div v-else class="flex items-center justify-center h-full text-sm text-gray-800">
+      <div
+        v-else
+        class="flex items-center justify-center h-full text-sm text-gray-800"
+      >
         纯音乐，请您欣赏
       </div>
     </el-scrollbar>
@@ -93,7 +102,9 @@ const formatedLyrics = computed(() => {
     const lyricList = formatLyric(props.lyric);
     const transLyricList = formatLyric(props.transLyric);
     return lyricList.map((item) => {
-      const findResult = transLyricList.find((transItem) => item.time === transItem.time);
+      const findResult = transLyricList.find(
+        (transItem) => item.time === transItem.time
+      );
       if (findResult) {
         return {
           ...item,
