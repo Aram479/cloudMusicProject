@@ -43,7 +43,7 @@ const rankModule: Module<ILoginState, IRootState> = {
     /* 获取登录状态 */
     async getLoginStatus({ state, commit }) {
       const { data: res } = await getLoginStatus();
-      if (res.account == null) {
+      if (res.account !== 200) {
         commit("logoutDelData"); //清空登录数据
       }
     },
