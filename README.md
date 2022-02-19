@@ -1,29 +1,4 @@
-# vue3-ts-cloudmusic
+# 仿网易云音乐(PC端)
+技术栈:vue3+ts+elements 
+项目演示:https://wzp-music-player.vercel.app/#/main/home
 
-## Project setup
-
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-
-```
-npm run build
-```
-
-### Lints and fixes files
-
-```
-npm run lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
