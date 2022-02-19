@@ -7,7 +7,7 @@ module.exports = {
   publicPath: "./", //以打包，记得改为/
   outputDir: "./build",
   configureWebpack: {
-    devtool:'source-map',   //添加source-map
+    devtool: "source-map", //添加source-map
     plugins: [
       AutoImport({
         resolvers: [ElementPlusResolver()],

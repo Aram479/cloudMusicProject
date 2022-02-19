@@ -1,4 +1,9 @@
-import { createRouter, createWebHashHistory, createWebHistory, RouteRecordRaw } from "vue-router";
+import {
+  createRouter,
+  createWebHashHistory,
+  createWebHistory,
+  RouteRecordRaw,
+} from "vue-router";
 const Main = () => import("@/views/Main.vue");
 const VideoDetail = () => import("@/views/videoDetail/VideoDetail.vue");
 const Home = () => import("@/views/home/Home.vue");
