@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHashHistory, createWebHistory, RouteRecordRaw } from "vue-router";
 const Main = () => import("@/views/Main.vue");
 const VideoDetail = () => import("@/views/videoDetail/VideoDetail.vue");
 const Home = () => import("@/views/home/Home.vue");
@@ -90,7 +90,7 @@ const routes: Array<RouteRecordRaw> = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(),
   routes,
 });
 

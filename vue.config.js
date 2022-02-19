@@ -4,10 +4,10 @@ const Components = require("unplugin-vue-components/webpack");
 const { ElementPlusResolver } = require("unplugin-vue-components/resolvers");
 
 module.exports = {
-  publicPath: "/",
+  publicPath: "./", //以打包，记得改为/
   outputDir: "./build",
   configureWebpack: {
-    // ...
+    devtool:'source-map',   //添加source-map
     plugins: [
       AutoImport({
         resolvers: [ElementPlusResolver()],
@@ -27,7 +27,7 @@ module.exports = {
     proxy: {
       /* 添加多个跨域请求：/admin、/api... */
       "^/api": {
-        target: `https://cloud-music-api-psi.vercel.app/`, //访问的服务器地址
+        target: `https://cloud-music-api-psi.vercel.app`, //访问的服务器地址
         changeOrigin: true, //开启代理
         ws: true, //启用websockets
         pathRewrite: {
