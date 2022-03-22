@@ -45,7 +45,7 @@ class ZPRequest {
         //当响应成功时停止loading组件
         hideLoading();
         //拦截错误信息
-        if (data.returnCode === "-1001") {
+        if (data.returnCode == "-1001") {
           console.log("请求失败,错误信息");
         } else {
           return data;
